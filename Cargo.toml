@@ -1,0 +1,22 @@
+[package]
+edition = "2021"
+name = "rpro"
+version = "0.1.0"
+authors = ["zatevakhin"]
+
+[dependencies]
+tonic = "0.7.2"
+prost = "*"
+tokio = { version = "1", features = ["full"] }
+
+[build-dependencies]
+tonic-build = "0.7.2"
+
+
+[[bin]]
+name = "appd"
+path = "src/server.rs"
+
+[[bin]]
+name = "appc"
+path = "src/client.rs"

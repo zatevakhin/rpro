@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package account;
+
+service Account {
+    rpc Hello(void) returns (void);
+    rpc RegisterNew(AccountData) returns (Session);
+
+    rpc LoginTo(AuthenticationData) returns (Session);
+}
+
+message void {}
+
+message AccountData {
+    string FirstName = 1;
+    string LastName = 2;
+    AuthenticationData Authentication = 3;
+}
+
+message AuthenticationData {
+    string Email = 1;
+    string Password = 2;
+};
+
+message Session {
+    string session = 1;
+}
+
